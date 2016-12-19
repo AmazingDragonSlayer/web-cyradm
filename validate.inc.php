@@ -462,7 +462,7 @@ if (! empty($action)){
 				}
 				
 				# Check to see if there's an email with the same name
-				$query = "SELECT alias FROM virtual WHERE alias='".$_POST['email']."@".$_POST['domain']."'";
+				$query = "SELECT alias FROM `virtual` WHERE alias='".$_POST['email']."@".$_POST['domain']."'";
 				$result = $handle->query($query);
 				if (DB::isError($result)) {
 					die (_("Database error"));
@@ -682,7 +682,7 @@ if (! empty($action)){
 						$err_msg="Reserved Emailadress, request cancelled";
 					# Check to see if there's an email with the same name
 					} else {
-						$query = "SELECT alias FROM virtual WHERE alias='";
+						$query = "SELECT alias FROM `virtual` WHERE alias='";
 						if ($freeaddress != "YES") {
 							$query .= $_GET['alias']."@".$_GET['domain']."'";
 						} else {
@@ -754,7 +754,7 @@ if (! empty($action)){
 							$fullalias = $_GET['newalias']."@".$_GET['aliasdomain'];
 						}
 						if ($fullalias != $_GET['alias']) {
-							$query = "SELECT alias FROM virtual WHERE alias='".$fullalias."'";
+							$query = "SELECT alias FROM `virtual` WHERE alias='".$fullalias."'";
 							$result = $handle->query($query);
 							if (DB::isError($result)) {
 								die (_("Database error"));
@@ -1091,7 +1091,7 @@ if (! empty($action)){
 			$err_msg="Reserved Emailadress, request cancelled";
 		} 
 		elseif (!empty($_GET['adddest'])) {
-			$query = "SELECT * FROM virtual WHERE alias='".$_GET['alias']."' AND dest='".$_GET['dest']."' AND username='".$_GET['domain']."'";
+			$query = "SELECT * FROM `virtual` WHERE alias='".$_GET['alias']."' AND dest='".$_GET['dest']."' AND username='".$_GET['domain']."'";
 			$result = $handle->query($query);
 			if (DB::isError($result)) {
 				die (_("Database error"));

@@ -114,7 +114,7 @@ CREATE TABLE search (
 # Table structure for table `virtual`
 #
 
-CREATE TABLE virtual (
+CREATE TABLE `virtual` (
   alias varchar(255) NOT NULL default '',
   dest longtext,
   username varchar(50) NOT NULL default '',
